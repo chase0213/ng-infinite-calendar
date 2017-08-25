@@ -1,0 +1,41 @@
+<div #awesomeCalendar class="awesome-calendar">
+  <div class="container">
+    <nav class="navigation">
+      <div class="back-to-today">
+        <a (click)="onClickBackToToday()">
+          Back to Today
+        </a>
+      </div>
+    </nav>
+
+    <div class="scroll-view-outer-container">
+      <div #scrollView
+           class="scroll-view-inner-container"
+           (scroll)="onScroll($event)">
+        <div class="scroll-view" (touchmove)="onScroll($event)">
+          <div class="row" *ngFor="let week of pAddr">
+            <span class="cell"
+                  *ngFor="let date of week"
+                  [ngClass]="{
+                    'current': vAddr[date.x][date.y].current,
+                    'holiday': vAddr[date.x][date.y].holiday,
+                    'hovered': vAddr[date.x][date.y].hovered,
+                    'selected': vAddr[date.x][date.y].selected
+                  }"
+                  (click)="onClickDate($event, date)"
+                  (mouseover)="onMouseoverDate($event, date)">
+              <span class="year" *ngIf="vAddr[date.x][date.y].firstDayOfYear">
+                {{vAddr[date.x][date.y].year}}
+              </span>
+              <span class="month" *ngIf="vAddr[date.x][date.y].firstDayOfMonth">
+                {{vAddr[date.x][date.y].month}}
+              </span>
+              {{vAddr[date.x][date.y].day}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

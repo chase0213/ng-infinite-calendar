@@ -1,0 +1,98 @@
+$event-height: 2.4rem;
+$row-line-height: 1.7rem;
+$rows: 5;
+
+.awesome-calendar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 100%;
+  }
+
+  //
+  // hide scrollbar
+  //
+  // see below
+  // https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/
+  .scroll-view-outer-container, .scroll-view {
+    height: ($row-line-height + $event-height) * $rows;
+    width: 100%;
+  }
+
+  .scroll-view-outer-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-view-inner-container {
+    position: absolute;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+
+    // スクロールをスムーズに
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .row {
+    display: block;
+    line-height: $row-line-height;
+  }
+
+  .cell {
+    display: inline-block;
+    padding-bottom: $event-height;
+    position: relative;
+    text-align: center;
+    width: 14%;
+
+    // today
+    &.current {
+      background: #faa779;
+    }
+
+    // hovered day
+    &.hovered {
+      background: rgba(#ffff9f, .4);
+    }
+
+    // selected day
+    &.selected {
+      background: rgba(#00a8d5, .6);
+    }
+
+    // Holiday
+    &.holiday {
+      color: #ED2939;
+    }
+
+    // the first day of month
+    .month {
+      color: #989898;
+      font-size: .8em;
+
+      &::after {
+        content: '/';
+      }
+    }
+
+    // the first day of year
+    .year {
+      bottom: 0;
+      font-size: .6em;
+      position: absolute;
+    }
+  }
+
+  .back-to-today {
+    text-align: right;
+    margin: 1em;
+  }
+}
