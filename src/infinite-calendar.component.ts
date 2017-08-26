@@ -1,13 +1,66 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { CalendarService } from './calendar.service';
+import { InfiniteCalendarOptions } from './infinite-calendar-options';
 import { ExtDate, ExtInterval } from 'extdate';
 
 declare const Math;
 const PANE_HEIGHT = 325;
 
+const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
+  style: {
+    height: PANE_HEIGHT,
+  },
+  navigator: {
+    today: true,
+    labelForToday: 'Today',
+  }
+};
+
 @Component({
   selector: 'infinite-calendar',
-  templateUrl: `./infinite-calendar.component.html`,
+  template: `
+  <div #awesomeCalendar class="awesome-calendar">
+    <div class="container">
+      <nav class="navigation" *ngIf="navForToday">
+        <div class="back-to-today">
+          <a class="nav-button" (click)="onClickBackToToday()">
+            {{ labelForToday }}
+          </a>
+        </div>
+      </nav>
+
+      <div class="scroll-view-outer-container">
+        <div #scrollView
+            class="scroll-view-inner-container"
+            (scroll)="onScroll($event)">
+          <div class="scroll-view" (touchmove)="onScroll($event)">
+            <div class="row" *ngFor="let week of pAddr">
+              <span class="cell"
+                    *ngFor="let date of week"
+                    [ngClass]="{
+                      'current': vAddr[date.x][date.y].current,
+                      'holiday': vAddr[date.x][date.y].holiday,
+                      'hovered': vAddr[date.x][date.y].hovered,
+                      'selected': vAddr[date.x][date.y].selected
+                    }"
+                    (click)="onClickDate($event, date)"
+                    (mouseover)="onMouseoverDate($event, date)">
+                <span class="year" *ngIf="vAddr[date.x][date.y].firstDayOfYear">
+                  {{vAddr[date.x][date.y].year}}
+                </span>
+                <span class="month" *ngIf="vAddr[date.x][date.y].firstDayOfMonth">
+                  {{vAddr[date.x][date.y].month}}
+                </span>
+                {{vAddr[date.x][date.y].day}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  `,
   styleUrls: [
     './infinite-calendar.component.scss',
   ]
@@ -16,6 +69,25 @@ export class InfiniteCalendarComponent {
 
   @ViewChild('scrollView')
   scrollView: ElementRef;
+
+
+  //
+  // Inputs
+  //
+
+  @Input()
+  height: number = DEFAULT_OPTIONS.style.height;
+
+  @Input()
+  navForToday: boolean = DEFAULT_OPTIONS.navigator.today;
+
+  @Input()
+  labelForToday: string = DEFAULT_OPTIONS.navigator.labelForToday;
+
+
+  //
+  // Outputs
+  //
 
   @Output()
   selectDate: EventEmitter<ExtDate> = new EventEmitter<ExtDate>();
@@ -93,12 +165,12 @@ export class InfiniteCalendarComponent {
 
   ngAfterViewInit() {
     let ele = this.scrollView.nativeElement;
-    const initialScrollTop = PANE_HEIGHT;
+    const initialScrollTop = this.height;
     this._scrollTo(ele, initialScrollTop, this.scrollDuration);
   }
 
   onClickBackToToday() {
-    const y = (-this.pAddr[0][0].y * PANE_HEIGHT / this.maxRowsOnWindow);
+    const y = (-this.pAddr[0][0].y * this.height / this.maxRowsOnWindow);
     this._scrollTo(this.scrollView.nativeElement, y, this.scrollDuration);
   }
 
@@ -126,12 +198,12 @@ export class InfiniteCalendarComponent {
     }
 
     // load prev month
-    if (this.scrollView.nativeElement.scrollTop <= PANE_HEIGHT) {
+    if (this.scrollView.nativeElement.scrollTop <= this.height) {
       this._appendMonthToTop();
     }
 
     // load next month
-    if (this.scrollView.nativeElement.scrollTop + 2 * PANE_HEIGHT > this.scrollView.nativeElement.scrollHeight) {
+    if (this.scrollView.nativeElement.scrollTop + 2 * this.height > this.scrollView.nativeElement.scrollHeight) {
       this._appendMonthToBottom();
     }
   }

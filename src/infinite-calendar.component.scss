@@ -22,6 +22,9 @@ $rows: 5;
   }
 
   .scroll-view-outer-container {
+    border: 1px solid rgba(#888, .4);
+    border-radius: 4px;
+    box-shadow: 1px 0px 3px -1px rgba(#888, .8);
     position: relative;
     overflow: hidden;
   }
@@ -31,6 +34,7 @@ $rows: 5;
     left: 0;
     overflow-x: hidden;
     overflow-y: scroll;
+    padding: 8px;
     width: 100%;
 
     // スクロールをスムーズに
@@ -48,14 +52,17 @@ $rows: 5;
 
   .cell {
     display: inline-block;
-    padding-bottom: $event-height;
+    height: $row-line-height + $event-height;
+    padding-bottom: 0;
     position: relative;
     text-align: center;
     width: 14%;
 
     // today
     &.current {
-      background: #faa779;
+      border: 2px #faa779 solid;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
 
     // hovered day
@@ -65,7 +72,7 @@ $rows: 5;
 
     // selected day
     &.selected {
-      background: rgba(#00a8d5, .6);
+      background: rgba(#faa779, .6);
     }
 
     // Holiday
@@ -85,14 +92,25 @@ $rows: 5;
 
     // the first day of year
     .year {
-      bottom: 0;
-      font-size: .6em;
-      position: absolute;
+      color: #989898;
+      font-size: .8em;
+      margin-right: .2em;
     }
   }
 
   .back-to-today {
     text-align: right;
     margin: 1em;
+  }
+
+  .nav-button {
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+    padding: .2em 16px;
+
+    &:hover {
+      color: #faa799;
+    }
   }
 }

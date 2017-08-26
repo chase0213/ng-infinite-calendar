@@ -42,6 +42,7 @@
     "codelyzer": "~2.0.0",
     "core-js": "^2.4.1",
     "del": "^2.2.2",
+    "extdate": "^0.3.4",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
@@ -68,7 +69,5 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "dependencies": {
-    "extdate": "^0.3.4"
-  }
+  "dependencies": {}
 }
