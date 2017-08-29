@@ -94,7 +94,9 @@ $rows: 5;
   }
 
   .row {
-    display: block;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
     line-height: $row-line-height;
   }
 
@@ -143,6 +145,23 @@ $rows: 5;
       color: #989898;
       font-size: .8em;
       margin-right: .2em;
+    }
+
+    // events
+    .event-container {
+      height: 2rem;
+      overflow: hidden;
+
+      .event {
+        color: rgb(95, 158, 160);
+        font-size: .8rem;
+        height: 1rem;
+        line-height: 1rem;
+        overflow: hidden;
+        padding: 0 .2em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 

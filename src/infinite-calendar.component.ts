@@ -1,12 +1,14 @@
 import { Component, OnInit, OnChanges, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
-import { CalendarService } from './calendar.service';
 import { InfiniteCalendarOptions } from './infinite-calendar-options';
 import { I18n } from './i18n';
 import { ExtDate, ExtInterval } from 'extdate';
+import { InfiniteCalendarEvent } from './infinite-calendar-event';
+import { ExtDateWithEvent } from './infinite-calendar-date-with-event';
 
 declare const Math;
 const PANE_HEIGHT = 325;
 const ROW_HEIGHT = 65.594;
+const CALENDAR_KEY_FORMAT = "%Y-%m-%d"
 
 const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
   style: {
@@ -68,6 +70,15 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
                   {{vAddr[date.x][date.y].month}}
                 </span>
                 {{vAddr[date.x][date.y].day}}
+
+                <div class="event-container" *ngIf="calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')]">
+                  <div class="event">
+                    {{ calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')][0].title }}
+                  </div>
+                  <div class="event" *ngIf="calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')].length > 1">
+                    +{{calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')].length - 1}}
+                  </div>
+                </div>
               </span>
             </div>
           </div>
@@ -106,16 +117,15 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   @Input()
   shortLabel: boolean = DEFAULT_OPTIONS.label.short;
 
+  @Input()
+  events: InfiniteCalendarEvent[] = [];
+
   //
   // Outputs
   //
 
   @Output()
-  selectDate: EventEmitter<ExtDate> = new EventEmitter<ExtDate>();
-
-  @Output()
-  selectInterval: EventEmitter<ExtInterval> = new EventEmitter<ExtInterval>();
-
+  selectDate: EventEmitter<ExtDateWithEvent> = new EventEmitter<ExtDateWithEvent>();
 
   //
   // Configuration
@@ -132,6 +142,9 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
 
   // week labels
   weekLabels: string[] = [];
+
+  // event dictionary
+  calendar: any = {};
 
   // virtual address
   vAddr: any = {};
@@ -200,6 +213,10 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
     } else {
       this.weekLabels = I18n[this.language]['default'];
     }
+
+    if (this.events && this.events.length > 0) {
+      this._initializeEvents();
+    }
   }
 
   ngAfterViewInit() {
@@ -220,7 +237,12 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
     this.selecting = addr;
     this.vAddr[addr['x']][addr['y']].selected = true;
 
-    this.selectDate.emit(this.vAddr[addr['x']][addr['y']].date);
+    let date = this.vAddr[addr['x']][addr['y']].date;
+    let dateWithEvent: ExtDateWithEvent = {
+      date: date,
+      events: this.calendar[date.strftime(CALENDAR_KEY_FORMAT)]
+    };
+    this.selectDate.emit(dateWithEvent);
   }
 
   onMouseoverDate(event, addr) {
@@ -253,6 +275,42 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
 
     // calculate the first day of the current window
     this.midDayOnCurrentWindow = this._midDayFromScrollTop(this.scrollView.nativeElement.scrollTop, ROW_HEIGHT);
+  }
+
+  private _initializeEvents() {
+    for (let event of this.events) {
+      let beginAt = event.beginAt;
+      let endAt = event.endAt;
+      let interval = new ExtInterval(beginAt, endAt);
+      for (let i = 0; i < Math.floor(interval.asDay()); i++ ) {
+        let date = beginAt.nextDay(i);
+        const key = date.strftime(CALENDAR_KEY_FORMAT);
+        this.calendar[key] = this.calendar[key] || [];
+
+        // calculate order of the event
+        if (!event.data.order) {
+          let order = 0;
+          let eventsOnDay = this.calendar[key];
+
+          // sort events to find a wormhole order
+          eventsOnDay = eventsOnDay.sort((a, b) => {
+            return a.data.order - b.data.order;
+          });
+
+          // find a wormhole
+          for (let e of eventsOnDay) {
+            if (order != e.order) {
+              break;
+            }
+            order++;
+          }
+
+          event.data.order = order;
+        }
+
+        this.calendar[key].push(event);
+      }
+    }
   }
 
 

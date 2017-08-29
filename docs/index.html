@@ -89,22 +89,6 @@
             
             
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-injectables-links"
-                            >
-                            <span class="fa fa-long-arrow-down"></span>
-                            <span>Injectables</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-injectables-links"
-                            >
-                                <li class="link">
-                                    <a href="./injectables/CalendarService.html" >CalendarService</a>
-                                </li>
-                        </ul>
-                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -117,6 +101,15 @@
                         <ul class="links collapse "
                                 id="xs-interfaces-links"
                             >
+                                <li class="link">
+                                    <a href="./interfaces/ExtDateWithEvent.html" >ExtDateWithEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/InfiniteCalendarEvent.html" >InfiniteCalendarEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/InfiniteCalendarLabelOptions.html" >InfiniteCalendarLabelOptions</a>
+                                </li>
                                 <li class="link">
                                     <a href="./interfaces/InfiniteCalendarNavigatorOptions.html" >InfiniteCalendarNavigatorOptions</a>
                                 </li>
@@ -232,22 +225,6 @@
                    
                    
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#injectables-links"
-                   >
-                                   <span class="fa fa-long-arrow-down"></span>
-                                   <span>Injectables</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="injectables-links"
-                   >
-                                       <li class="link">
-                                           <a href="./injectables/CalendarService.html" >CalendarService</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -260,6 +237,15 @@
                                <ul class="links collapse "
                                        id="interfaces-links"
                    >
+                                       <li class="link">
+                                           <a href="./interfaces/ExtDateWithEvent.html" >ExtDateWithEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/InfiniteCalendarEvent.html" >InfiniteCalendarEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/InfiniteCalendarLabelOptions.html" >InfiniteCalendarLabelOptions</a>
+                                       </li>
                                        <li class="link">
                                            <a href="./interfaces/InfiniteCalendarNavigatorOptions.html" >InfiniteCalendarNavigatorOptions</a>
                                        </li>
@@ -306,16 +292,18 @@
 <h1 id="ng-infinite-calendar">ng-infinite-calendar</h1>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<pre class="line-numbers"><code class="language-bash">$ npm install ng-infinite-calendar --save</code></pre><h2 id="consuming-your-library">Consuming your library</h2>
-<p>Once you have published your library to npm, you can import your library in any Angular application by running:</p>
-<pre class="line-numbers"><code class="language-bash">$ npm install ng-infinite-calendar</code></pre><p>and then from your Angular <code>AppModule</code>:</p>
+<pre class="line-numbers"><code class="language-bash">$ npm install extdate ng-infinite-calendar --save</code></pre><p>NOTE:
+<a href="https://github.com/chase0213/extdate">extdate</a> is a simple and lite extension of Date object in javascript, which ng-infinite-calendar uses internally.</p>
+<h2 id="consuming-your-library">Consuming your library</h2>
+<p>You can import your library in any Angular application by running:</p>
+<pre class="line-numbers"><code class="language-bash">$ npm install extdate ng-infinite-calendar</code></pre><p>and then from your Angular <code>AppModule</code>:</p>
 <pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
 import { NgModule } from &#39;&#64;angular/core&#39;;
 
 import { AppComponent } from &#39;./app.component&#39;;
 
-// Import your library
-import { SampleModule } from &#39;ng-infinite-calendar&#39;;
+// Import the module
+import { InfiniteCalendarModule } from &#39;ng-infinite-calendar&#39;;
 
 &#64;NgModule({
   declarations: [
@@ -324,18 +312,21 @@ import { SampleModule } from &#39;ng-infinite-calendar&#39;;
   imports: [
     BrowserModule,
 
-    // Specify your library as an import
-    LibraryModule
+    // Specify the module as an import
+    InfiniteCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }</code></pre><p>Once your library is imported, you can use its components, directives and pipes in your Angular application:</p>
-<pre class="line-numbers"><code class="language-xml">&lt;!-- You can now use your library component in app.component.html --&gt;
+export class AppModule { }</code></pre><p>Once the module is imported, you can use its components, directives and pipes in your Angular application:</p>
+<pre class="line-numbers"><code class="language-xml">&lt;!-- You can now use the module component in app.component.html --&gt;
 &lt;h1&gt;
   {{title}}
 &lt;/h1&gt;
-&lt;sampleComponent&gt;&lt;/sampleComponent&gt;</code></pre><h2 id="development">Development</h2>
+&lt;ng-infinite-calendar&gt;&lt;/ng-infinite-calendar&gt;</code></pre><h2 id="inputs-and-outputs">Inputs and Outputs</h2>
+<p>Several inputs and outputs are provided.
+See docs for details.</p>
+<h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To lint all <code>*.ts</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><h2 id="license">License</h2>
