@@ -1,0 +1,1850 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ng-infinite-calendar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ng-infinite-calendar</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">ng-infinite-calendar</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/InfiniteCalendarModule.html" >InfiniteCalendarModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/InfiniteCalendarComponent.html"  data-type="entity-link" class="active" >InfiniteCalendarComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/CalendarService.html" >CalendarService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/InfiniteCalendarNavigatorOptions.html" >InfiniteCalendarNavigatorOptions</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/InfiniteCalendarOptions.html" >InfiniteCalendarOptions</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/InfiniteCalendarStyleOptions.html" >InfiniteCalendarStyleOptions</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">ng-infinite-calendar</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/InfiniteCalendarModule.html" >InfiniteCalendarModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/InfiniteCalendarComponent.html"  data-type="entity-link" class="active" >InfiniteCalendarComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/CalendarService.html" >CalendarService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/InfiniteCalendarNavigatorOptions.html" >InfiniteCalendarNavigatorOptions</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/InfiniteCalendarOptions.html" >InfiniteCalendarOptions</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/InfiniteCalendarStyleOptions.html" >InfiniteCalendarStyleOptions</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>InfiniteCalendarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/infinite-calendar.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>infinite-calendar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>infinite-calendar.component.scss</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div #awesomeCalendar class&#x3D;&quot;awesome-calendar&quot;&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;nav class&#x3D;&quot;navigation&quot; *ngIf&#x3D;&quot;navForToday&quot;&gt;
+      &lt;div class&#x3D;&quot;back-to-today&quot;&gt;
+        &lt;a class&#x3D;&quot;nav-button&quot; (click)&#x3D;&quot;onClickBackToToday()&quot;&gt;
+          {{ labelForToday }}
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div class&#x3D;&quot;scroll-view-outer-container&quot;&gt;
+      &lt;div #scrollView
+          class&#x3D;&quot;scroll-view-inner-container&quot;
+          (scroll)&#x3D;&quot;onScroll($event)&quot;&gt;
+        &lt;div class&#x3D;&quot;scroll-view&quot; (touchmove)&#x3D;&quot;onScroll($event)&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot; *ngFor&#x3D;&quot;let week of pAddr&quot;&gt;
+            &lt;span class&#x3D;&quot;cell&quot;
+                  *ngFor&#x3D;&quot;let date of week&quot;
+                  [ngClass]&#x3D;&quot;{
+                    &#x27;current&#x27;: vAddr[date.x][date.y].current,
+                    &#x27;holiday&#x27;: vAddr[date.x][date.y].holiday,
+                    &#x27;hovered&#x27;: vAddr[date.x][date.y].hovered,
+                    &#x27;selected&#x27;: vAddr[date.x][date.y].selected
+                  }&quot;
+                  (click)&#x3D;&quot;onClickDate($event, date)&quot;
+                  (mouseover)&#x3D;&quot;onMouseoverDate($event, date)&quot;&gt;
+              &lt;span class&#x3D;&quot;year&quot; *ngIf&#x3D;&quot;vAddr[date.x][date.y].firstDayOfYear&quot;&gt;
+                {{vAddr[date.x][date.y].year}}
+              &lt;/span&gt;
+              &lt;span class&#x3D;&quot;month&quot; *ngIf&#x3D;&quot;vAddr[date.x][date.y].firstDayOfMonth&quot;&gt;
+                {{vAddr[date.x][date.y].month}}
+              &lt;/span&gt;
+              {{vAddr[date.x][date.y].day}}
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#beginningOnWindow">beginningOnWindow</a>
+                            </li>
+                            <li>
+                                 <a href="#currentDate">currentDate</a>
+                            </li>
+                            <li>
+                                 <a href="#endOnWindow">endOnWindow</a>
+                            </li>
+                            <li>
+                                 <a href="#hovering">hovering</a>
+                            </li>
+                            <li>
+                                 <a href="#loadable">loadable</a>
+                            </li>
+                            <li>
+                                 <a href="#maxRowsInVirtualContainer">maxRowsInVirtualContainer</a>
+                            </li>
+                            <li>
+                                 <a href="#maxRowsOnWindow">maxRowsOnWindow</a>
+                            </li>
+                            <li>
+                                 <a href="#origin">origin</a>
+                            </li>
+                            <li>
+                                 <a href="#pAddr">pAddr</a>
+                            </li>
+                            <li>
+                                 <a href="#scrollDuration">scrollDuration</a>
+                            </li>
+                            <li>
+                                 <a href="#scrollView">scrollView</a>
+                            </li>
+                            <li>
+                                 <a href="#selecting">selecting</a>
+                            </li>
+                            <li>
+                                 <a href="#vAddr">vAddr</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <span class="modifier">Private</span> <a href="#_appendMonthToBottom">_appendMonthToBottom</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#_appendMonthToTop">_appendMonthToTop</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#_calcVirtualAddress">_calcVirtualAddress</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#_easing">_easing</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Private</span> <a href="#_scrollTo">_scrollTo</a>
+                            </li>
+                            <li>
+                                 <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                 <a href="#onClickBackToToday">onClickBackToToday</a>
+                            </li>
+                            <li>
+                                 <a href="#onClickDate">onClickDate</a>
+                            </li>
+                            <li>
+                                 <a href="#onMouseoverDate">onMouseoverDate</a>
+                            </li>
+                            <li>
+                                 <a href="#onScroll">onScroll</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#height">height</a>
+                            </li>
+                            <li>
+                                <a href="#labelForToday">labelForToday</a>
+                            </li>
+                            <li>
+                                <a href="#navForToday">navForToday</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#selectDate">selectDate</a>
+                            </li>
+                            <li>
+                                <a href="#selectInterval">selectInterval</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/infinite-calendar.component.ts:130</a></div>
+                                </td>
+                            </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="height"></a>
+                            <code>height</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/infinite-calendar.component.ts:79</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="labelForToday"></a>
+                            <code>labelForToday</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/infinite-calendar.component.ts:85</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="navForToday"></a>
+                            <code>navForToday</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/infinite-calendar.component.ts:82</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="selectDate"></a>
+                            <code>selectDate</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;ExtDate&gt;</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/infinite-calendar.component.ts:93</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="selectInterval"></a>
+                            <code>selectInterval</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;ExtInterval&gt;</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/infinite-calendar.component.ts:96</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_appendMonthToBottom"></a>
+                            <b><span class="modifier">Private</span> _appendMonthToBottom</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play lock"></span>
+                            <code>_appendMonthToBottom()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">src/infinite-calendar.component.ts:238</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_appendMonthToTop"></a>
+                            <b><span class="modifier">Private</span> _appendMonthToTop</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play lock"></span>
+                            <code>_appendMonthToTop()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="211" class="link-to-prism">src/infinite-calendar.component.ts:211</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_calcVirtualAddress"></a>
+                            <b><span class="modifier">Private</span> _calcVirtualAddress</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play lock"></span>
+                            <code>_calcVirtualAddress(date: ExtDate)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="266" class="link-to-prism">src/infinite-calendar.component.ts:266</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>{ x: number; y: any; }</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_easing"></a>
+                            <b><span class="modifier">Private</span> _easing</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play lock"></span>
+                            <code>_easing(pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">src/infinite-calendar.component.ts:311</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>(time: number) &#x3D;&gt; number</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="_scrollTo"></a>
+                            <b><span class="modifier">Private</span> _scrollTo</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play lock"></span>
+                            <code>_scrollTo(element: , offsetTop: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, duration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="282" class="link-to-prism">src/infinite-calendar.component.ts:282</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngAfterViewInit"></a>
+                            <b> ngAfterViewInit</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/infinite-calendar.component.ts:166</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnInit"></a>
+                            <b> ngOnInit</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/infinite-calendar.component.ts:134</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onClickBackToToday"></a>
+                            <b> onClickBackToToday</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onClickBackToToday()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/infinite-calendar.component.ts:172</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onClickDate"></a>
+                            <b> onClickDate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onClickDate(event: , addr: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/infinite-calendar.component.ts:177</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onMouseoverDate"></a>
+                            <b> onMouseoverDate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onMouseoverDate(event: , addr: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/infinite-calendar.component.ts:187</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onScroll"></a>
+                            <b> onScroll</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onScroll(event: )</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/infinite-calendar.component.ts:195</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="beginningOnWindow"></a>
+                            <b> beginningOnWindow</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>beginningOnWindow:     <code>ExtDate</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>ExtDate</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/infinite-calendar.component.ts:129</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="currentDate"></a>
+                            <b> currentDate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>currentDate:     <code>ExtDate</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>ExtDate</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/infinite-calendar.component.ts:128</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="endOnWindow"></a>
+                            <b> endOnWindow</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>endOnWindow:     <code>ExtDate</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>ExtDate</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/infinite-calendar.component.ts:130</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="hovering"></a>
+                            <b> hovering</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>hovering:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/infinite-calendar.component.ts:109</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="loadable"></a>
+                            <b> loadable</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>loadable:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>false</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/infinite-calendar.component.ts:118</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="maxRowsInVirtualContainer"></a>
+                            <b> maxRowsInVirtualContainer</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>maxRowsInVirtualContainer:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>15</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/infinite-calendar.component.ts:102</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="maxRowsOnWindow"></a>
+                            <b> maxRowsOnWindow</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>maxRowsOnWindow:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>5</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/infinite-calendar.component.ts:103</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="origin"></a>
+                            <b> origin</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>origin:     <code>ExtDate</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>ExtDate</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/infinite-calendar.component.ts:125</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="pAddr"></a>
+                            <b> pAddr</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>pAddr:     <code>[][]</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>[][]</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/infinite-calendar.component.ts:116</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="scrollDuration"></a>
+                            <b> scrollDuration</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>scrollDuration:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>400</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/infinite-calendar.component.ts:104</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="scrollView"></a>
+                            <b> scrollView</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>scrollView:     <code><a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank" >ElementRef</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank" >ElementRef</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Decorators : </i><code>ViewChild</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/infinite-calendar.component.ts:71</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="selecting"></a>
+                            <b> selecting</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>selecting:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/infinite-calendar.component.ts:110</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="vAddr"></a>
+                            <b> vAddr</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>vAddr:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/infinite-calendar.component.ts:113</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { CalendarService } from &#x27;./calendar.service&#x27;;
+import { InfiniteCalendarOptions } from &#x27;./infinite-calendar-options&#x27;;
+import { ExtDate, ExtInterval } from &#x27;extdate&#x27;;
+
+declare const Math;
+const PANE_HEIGHT &#x3D; 325;
+
+const DEFAULT_OPTIONS: InfiniteCalendarOptions &#x3D; {
+  style: {
+    height: PANE_HEIGHT,
+  },
+  navigator: {
+    today: true,
+    labelForToday: &#x27;Today&#x27;,
+  }
+};
+
+@Component({
+  selector: &#x27;infinite-calendar&#x27;,
+  template: &#x60;
+  &lt;div #awesomeCalendar class&#x3D;&quot;awesome-calendar&quot;&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;nav class&#x3D;&quot;navigation&quot; *ngIf&#x3D;&quot;navForToday&quot;&gt;
+        &lt;div class&#x3D;&quot;back-to-today&quot;&gt;
+          &lt;a class&#x3D;&quot;nav-button&quot; (click)&#x3D;&quot;onClickBackToToday()&quot;&gt;
+            {{ labelForToday }}
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;
+
+      &lt;div class&#x3D;&quot;scroll-view-outer-container&quot;&gt;
+        &lt;div #scrollView
+            class&#x3D;&quot;scroll-view-inner-container&quot;
+            (scroll)&#x3D;&quot;onScroll($event)&quot;&gt;
+          &lt;div class&#x3D;&quot;scroll-view&quot; (touchmove)&#x3D;&quot;onScroll($event)&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot; *ngFor&#x3D;&quot;let week of pAddr&quot;&gt;
+              &lt;span class&#x3D;&quot;cell&quot;
+                    *ngFor&#x3D;&quot;let date of week&quot;
+                    [ngClass]&#x3D;&quot;{
+                      &#x27;current&#x27;: vAddr[date.x][date.y].current,
+                      &#x27;holiday&#x27;: vAddr[date.x][date.y].holiday,
+                      &#x27;hovered&#x27;: vAddr[date.x][date.y].hovered,
+                      &#x27;selected&#x27;: vAddr[date.x][date.y].selected
+                    }&quot;
+                    (click)&#x3D;&quot;onClickDate($event, date)&quot;
+                    (mouseover)&#x3D;&quot;onMouseoverDate($event, date)&quot;&gt;
+                &lt;span class&#x3D;&quot;year&quot; *ngIf&#x3D;&quot;vAddr[date.x][date.y].firstDayOfYear&quot;&gt;
+                  {{vAddr[date.x][date.y].year}}
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;month&quot; *ngIf&#x3D;&quot;vAddr[date.x][date.y].firstDayOfMonth&quot;&gt;
+                  {{vAddr[date.x][date.y].month}}
+                &lt;/span&gt;
+                {{vAddr[date.x][date.y].day}}
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &#x60;,
+  styleUrls: [
+    &#x27;./infinite-calendar.component.scss&#x27;,
+  ]
+})
+export class InfiniteCalendarComponent {
+
+  @ViewChild(&#x27;scrollView&#x27;)
+  scrollView: ElementRef;
+
+
+  //
+  // Inputs
+  //
+
+  @Input()
+  height: number &#x3D; DEFAULT_OPTIONS.style.height;
+
+  @Input()
+  navForToday: boolean &#x3D; DEFAULT_OPTIONS.navigator.today;
+
+  @Input()
+  labelForToday: string &#x3D; DEFAULT_OPTIONS.navigator.labelForToday;
+
+
+  //
+  // Outputs
+  //
+
+  @Output()
+  selectDate: EventEmitter&lt;ExtDate&gt; &#x3D; new EventEmitter&lt;ExtDate&gt;();
+
+  @Output()
+  selectInterval: EventEmitter&lt;ExtInterval&gt; &#x3D; new EventEmitter&lt;ExtInterval&gt;();
+
+
+  //
+  // Configuration
+  //
+  maxRowsInVirtualContainer: number &#x3D; 15;
+  maxRowsOnWindow: number &#x3D; 5;
+  scrollDuration: number &#x3D; 400; // msec
+
+  //
+  // View Models
+  //
+  hovering: [number, number];
+  selecting: [number, number];
+
+  // virtual address
+  vAddr: any &#x3D; {};
+
+  // physical address
+  pAddr: any[][] &#x3D; [];
+
+  loadable: boolean &#x3D; false;
+
+  //
+  // Models
+  //
+
+  // The origin point in virtual space
+  origin: ExtDate &#x3D; new ExtDate();
+
+  // current date object
+  currentDate: ExtDate &#x3D; new ExtDate();
+  beginningOnWindow: ExtDate;
+  endOnWindow: ExtDate;
+
+  constructor() { }
+
+  ngOnInit() {
+    const halfWeeks &#x3D; Math.floor(this.maxRowsInVirtualContainer / 2.0);
+    this.beginningOnWindow &#x3D; this.currentDate.beginningOfWeek().prevWeek(halfWeeks);
+    this.endOnWindow &#x3D; this.currentDate.endOfWeek().nextWeek(halfWeeks);
+
+    // set origin of virtual address to the beginning of the week of current day
+    this.origin &#x3D; this.currentDate.beginningOfWeek();
+
+    for (let w &#x3D; 0; w &lt; this.maxRowsInVirtualContainer; w++) {
+      this.pAddr.push([]);
+      for (let d &#x3D; 0; d &lt; 7; d++) {
+        let date &#x3D; this.beginningOnWindow.nextDay(7 * w + d);
+        let addr &#x3D; this._calcVirtualAddress(date);
+        this.pAddr[w].push(addr);
+        this.vAddr[addr.x] &#x3D; this.vAddr[addr.x] || {};
+        this.vAddr[addr.x][addr.y] &#x3D; {
+          date: date,
+          year: date.year(),
+          month: date.month(),
+          day: date.day(),
+          dayOfWeekInShort: date.dayOfWeekInShort(&#x27;en&#x27;),
+          current: date.isSameDay(this.currentDate),
+          hovered: false,
+          selected: false,
+          holiday: date.dayOfWeekInShort(&#x27;en&#x27;) &#x3D;&#x3D;&#x3D; &#x27;Sun&#x27;,
+          firstDayOfMonth: date.day() &#x3D;&#x3D;&#x3D; 1,
+          firstDayOfYear: date.month() &#x3D;&#x3D;&#x3D; 1 &amp;&amp; date.day() &#x3D;&#x3D;&#x3D; 1
+        }
+      }
+    }
+  }
+
+  ngAfterViewInit() {
+    let ele &#x3D; this.scrollView.nativeElement;
+    const initialScrollTop &#x3D; this.height;
+    this._scrollTo(ele, initialScrollTop, this.scrollDuration);
+  }
+
+  onClickBackToToday() {
+    const y &#x3D; (-this.pAddr[0][0].y * this.height / this.maxRowsOnWindow);
+    this._scrollTo(this.scrollView.nativeElement, y, this.scrollDuration);
+  }
+
+  onClickDate(event, addr) {
+    if (this.selecting) {
+      this.vAddr[this.selecting[&#x27;x&#x27;]][this.selecting[&#x27;y&#x27;]].selected &#x3D; false;
+    }
+    this.selecting &#x3D; addr;
+    this.vAddr[addr[&#x27;x&#x27;]][addr[&#x27;y&#x27;]].selected &#x3D; true;
+
+    this.selectDate.emit(this.vAddr[addr[&#x27;x&#x27;]][addr[&#x27;y&#x27;]].date);
+  }
+
+  onMouseoverDate(event, addr) {
+    if (this.hovering) {
+      this.vAddr[this.hovering[&#x27;x&#x27;]][this.hovering[&#x27;y&#x27;]].hovered &#x3D; false;
+    }
+    this.hovering &#x3D; addr;
+    this.vAddr[addr[&#x27;x&#x27;]][addr[&#x27;y&#x27;]].hovered &#x3D; true;
+  }
+
+  onScroll(event) {
+    if (!this.loadable) {
+      return;
+    }
+
+    // load prev month
+    if (this.scrollView.nativeElement.scrollTop &lt;&#x3D; this.height) {
+      this._appendMonthToTop();
+    }
+
+    // load next month
+    if (this.scrollView.nativeElement.scrollTop + 2 * this.height &gt; this.scrollView.nativeElement.scrollHeight) {
+      this._appendMonthToBottom();
+    }
+  }
+
+  private _appendMonthToTop() {
+    this.beginningOnWindow &#x3D; this.beginningOnWindow.prevDay(7 * this.maxRowsOnWindow);
+    for (let w &#x3D; this.maxRowsOnWindow - 1; w &gt;&#x3D; 0; w--) {
+      let week &#x3D; [];
+      for (let d &#x3D; 0; d &lt; 7; d++) {
+        let date &#x3D; this.beginningOnWindow.nextDay(7 * w + d);
+        let addr &#x3D; this._calcVirtualAddress(date);
+        week.push(addr);
+        this.vAddr[addr.x] &#x3D; this.vAddr[addr.x] || {};
+        this.vAddr[addr.x][addr.y] &#x3D; {
+          date: date,
+          year: date.year(),
+          month: date.month(),
+          day: date.day(),
+          dayOfWeekInShort: date.dayOfWeekInShort(&#x27;en&#x27;),
+          current: date.isSameDay(this.currentDate),
+          hovered: false,
+          selected: false,
+          holiday: date.dayOfWeekInShort(&#x27;en&#x27;) &#x3D;&#x3D;&#x3D; &#x27;Sun&#x27;,
+          firstDayOfMonth: date.day() &#x3D;&#x3D;&#x3D; 1,
+          firstDayOfYear: date.month() &#x3D;&#x3D;&#x3D; 1 &amp;&amp; date.day() &#x3D;&#x3D;&#x3D; 1
+        }
+      }
+      this.pAddr &#x3D; [week].concat(this.pAddr);
+    }
+  }
+
+  private _appendMonthToBottom() {
+    let appendBeginning &#x3D; this.endOnWindow.nextDay();
+    this.endOnWindow &#x3D; this.endOnWindow.nextDay(7 * this.maxRowsOnWindow);
+    for (let w &#x3D; 0; w &lt; this.maxRowsOnWindow ; w++) {
+      let week &#x3D; [];
+      for (let d &#x3D; 0; d &lt; 7; d++) {
+        let date &#x3D; appendBeginning.nextDay(7 * w + d);
+        let addr &#x3D; this._calcVirtualAddress(date);
+        week.push(addr);
+        this.vAddr[addr.x] &#x3D; this.vAddr[addr.x] || {};
+        this.vAddr[addr.x][addr.y] &#x3D; {
+          date: date,
+          year: date.year(),
+          month: date.month(),
+          day: date.day(),
+          dayOfWeekInShort: date.dayOfWeekInShort(&#x27;en&#x27;),
+          current: date.isSameDay(this.currentDate),
+          hovered: false,
+          selected: false,
+          holiday: date.dayOfWeekInShort(&#x27;en&#x27;) &#x3D;&#x3D;&#x3D; &#x27;Sun&#x27;,
+          firstDayOfMonth: date.day() &#x3D;&#x3D;&#x3D; 1,
+          firstDayOfYear: date.month() &#x3D;&#x3D;&#x3D; 1 &amp;&amp; date.day() &#x3D;&#x3D;&#x3D; 1
+        }
+      }
+      this.pAddr &#x3D; this.pAddr.concat([week]);
+    }
+  }
+
+  private _calcVirtualAddress(date: ExtDate) {
+    let interval &#x3D; new ExtInterval(this.origin, date);
+    const days &#x3D; Math.floor(interval.asDay());
+    if (days &gt;&#x3D; 0) {
+      return {
+        x: days % 7,
+        y: Math.floor(days / 7.0)
+      };
+    } else {
+      return {
+        x: 6 - ((-days - 1) % 7),
+        y: Math.floor((7 + days)/ 7.0) - 1,
+      };
+    }
+  }
+
+  private _scrollTo(element, offsetTop:number, duration:number) {
+    const fps &#x3D; 60.0; // frame per sec
+
+    const initOffsetTop:number &#x3D; element.scrollTop;
+
+    let counter &#x3D; 0;
+    const interval &#x3D; setInterval(() &#x3D;&gt; {
+      if (counter * 1000 &gt;&#x3D; duration * fps) {
+        clearInterval(interval);
+      }
+
+      const easingFunction &#x3D; this._easing(&quot;quodratic&quot;);
+      const time &#x3D; counter * 1000 / (fps * duration);
+
+      const scrollTop &#x3D; initOffsetTop + (offsetTop - initOffsetTop) * easingFunction(time);
+      element.scrollTop &#x3D; scrollTop;
+
+      counter +&#x3D; 1;
+    }, Math.round(1000.0 / fps));
+
+    // setInterval will not be finished exact duration time
+    const error &#x3D; 400; // msec
+
+    // disable to load dates while auto scrolling
+    setTimeout(() &#x3D;&gt; {
+      this.loadable &#x3D; true;
+    }, duration + error);
+  }
+
+  private _easing(pattern:string) {
+    switch (pattern) {
+      case &quot;quodratic&quot;:
+        return function(time:number) {
+          return time &lt; .5 ? 2 * time * time : - 2 * (time - 1) * (time - 1) + 1;
+        }
+      default:
+        return function(time:number) {
+          return time &lt; .5 ? 2 * time * time : - 2 * (time - 1) * (time - 1) + 1;
+        }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div #awesomeCalendar class="awesome-calendar">  <div class="container">    <nav class="navigation" *ngIf="navForToday">      <div class="back-to-today">        <a class="nav-button" (click)="onClickBackToToday()">          {{ labelForToday }}        </a>      </div>    </nav>    <div class="scroll-view-outer-container">      <div #scrollView          class="scroll-view-inner-container"          (scroll)="onScroll($event)">        <div class="scroll-view" (touchmove)="onScroll($event)">          <div class="row" *ngFor="let week of pAddr">            <span class="cell"                  *ngFor="let date of week"                  [ngClass]="{                    \'current\': vAddr[date.x][date.y].current,                    \'holiday\': vAddr[date.x][date.y].holiday,                    \'hovered\': vAddr[date.x][date.y].hovered,                    \'selected\': vAddr[date.x][date.y].selected                  }"                  (click)="onClickDate($event, date)"                  (mouseover)="onMouseoverDate($event, date)">              <span class="year" *ngIf="vAddr[date.x][date.y].firstDayOfYear">                {{vAddr[date.x][date.y].year}}              </span>              <span class="month" *ngIf="vAddr[date.x][date.y].firstDayOfMonth">                {{vAddr[date.x][date.y].month}}              </span>              {{vAddr[date.x][date.y].day}}            </span>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'InfiniteCalendarComponent', 'selector': 'infinite-calendar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'InfiniteCalendarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>

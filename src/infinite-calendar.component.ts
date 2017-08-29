@@ -1,10 +1,12 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { CalendarService } from './calendar.service';
 import { InfiniteCalendarOptions } from './infinite-calendar-options';
+import { I18n } from './i18n';
 import { ExtDate, ExtInterval } from 'extdate';
 
 declare const Math;
 const PANE_HEIGHT = 325;
+const ROW_HEIGHT = 65.594;
 
 const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
   style: {
@@ -13,6 +15,10 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
   navigator: {
     today: true,
     labelForToday: 'Today',
+  },
+  label: {
+    lang: 'en',
+    short: true,
   }
 };
 
@@ -21,13 +27,23 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
   template: `
   <div #awesomeCalendar class="awesome-calendar">
     <div class="container">
-      <nav class="navigation" *ngIf="navForToday">
-        <div class="back-to-today">
+      <nav class="navigation">
+        <span class="current-day-indicator">
+          {{ midDayOnCurrentWindow.strftime("%Y/%m") }}
+        </span>
+
+        <div class="back-to-today" *ngIf="navForToday">
           <a class="nav-button" (click)="onClickBackToToday()">
             {{ labelForToday }}
           </a>
         </div>
       </nav>
+
+      <aside class="week-labels">
+        <span *ngFor="let label of weekLabels; let i = index" class="label" [ngClass]="{'holiday': i == 0}">
+          {{ label }}
+        </span>
+      </aside>
 
       <div class="scroll-view-outer-container">
         <div #scrollView
@@ -65,7 +81,7 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
     './infinite-calendar.component.scss',
   ]
 })
-export class InfiniteCalendarComponent {
+export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild('scrollView')
   scrollView: ElementRef;
@@ -84,6 +100,11 @@ export class InfiniteCalendarComponent {
   @Input()
   labelForToday: string = DEFAULT_OPTIONS.navigator.labelForToday;
 
+  @Input()
+  language: string = DEFAULT_OPTIONS.label.lang;
+
+  @Input()
+  shortLabel: boolean = DEFAULT_OPTIONS.label.short;
 
   //
   // Outputs
@@ -109,6 +130,9 @@ export class InfiniteCalendarComponent {
   hovering: [number, number];
   selecting: [number, number];
 
+  // week labels
+  weekLabels: string[] = [];
+
   // virtual address
   vAddr: any = {};
 
@@ -128,6 +152,7 @@ export class InfiniteCalendarComponent {
   currentDate: ExtDate = new ExtDate();
   beginningOnWindow: ExtDate;
   endOnWindow: ExtDate;
+  midDayOnCurrentWindow: ExtDate;
 
   constructor() { }
 
@@ -138,6 +163,12 @@ export class InfiniteCalendarComponent {
 
     // set origin of virtual address to the beginning of the week of current day
     this.origin = this.currentDate.beginningOfWeek();
+
+    // set week labels
+    this._setWeekLabels();
+
+    // calculate the mid day of the current window
+    this.midDayOnCurrentWindow = this._midDayFromScrollTop(this.scrollView.nativeElement.scrollTop, ROW_HEIGHT);
 
     for (let w = 0; w < this.maxRowsInVirtualContainer; w++) {
       this.pAddr.push([]);
@@ -160,6 +191,14 @@ export class InfiniteCalendarComponent {
           firstDayOfYear: date.month() === 1 && date.day() === 1
         }
       }
+    }
+  }
+
+  ngOnChanges() {
+    if (this.shortLabel) {
+      this.weekLabels = I18n[this.language]['short'];
+    } else {
+      this.weekLabels = I18n[this.language]['default'];
     }
   }
 
@@ -203,8 +242,25 @@ export class InfiniteCalendarComponent {
     }
 
     // load next month
+    //
+    // bottom of the current window = this.scrollView.nativeElement.scrollTop + this.height
+    // bottom of the next window = this.scrollView.nativeElement.scrollTop + 2 * this.height
+    //
+    // amount of scrolling = this.scrollView.nativeElement.scrollHeight
     if (this.scrollView.nativeElement.scrollTop + 2 * this.height > this.scrollView.nativeElement.scrollHeight) {
       this._appendMonthToBottom();
+    }
+
+    // calculate the first day of the current window
+    this.midDayOnCurrentWindow = this._midDayFromScrollTop(this.scrollView.nativeElement.scrollTop, ROW_HEIGHT);
+  }
+
+
+  private _setWeekLabels() {
+    if (this.shortLabel) {
+      this.weekLabels = I18n[this.language].dayOfWeek['short'];
+    } else {
+      this.weekLabels = I18n[this.language].dayOfWeek['default'];
     }
   }
 
@@ -261,6 +317,12 @@ export class InfiniteCalendarComponent {
       }
       this.pAddr = this.pAddr.concat([week]);
     }
+  }
+
+  private _midDayFromScrollTop(scrollTop: number, rowHeight: number): ExtDate {
+    let weeks = Math.floor(scrollTop / rowHeight);
+    let target = this.beginningOnWindow.nextWeek(weeks + 2).nextDay(3);
+    return target;
   }
 
   private _calcVirtualAddress(date: ExtDate) {
