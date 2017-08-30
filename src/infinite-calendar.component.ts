@@ -282,7 +282,7 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
       let beginAt = event.beginAt;
       let endAt = event.endAt;
       let interval = new ExtInterval(beginAt, endAt);
-      for (let i = 0; i < Math.floor(interval.asDay()); i++ ) {
+      for (let i = 0; i < Math.ceil(interval.asDay()); i++ ) {
         let date = beginAt.nextDay(i);
         const key = date.strftime(CALENDAR_KEY_FORMAT);
         this.calendar[key] = this.calendar[key] || [];
