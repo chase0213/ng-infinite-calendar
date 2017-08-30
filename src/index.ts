@@ -6,6 +6,7 @@ export * from './infinite-calendar.component';
 export * from './infinite-calendar-event';
 export * from './infinite-calendar-options';
 export * from './infinite-calendar-event';
+export * from './infinite-calendar-date-with-event';
 
 @NgModule({
   imports: [
