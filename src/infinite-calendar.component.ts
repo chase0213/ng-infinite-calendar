@@ -240,7 +240,7 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
     let date = this.vAddr[addr['x']][addr['y']].date;
     let dateWithEvent: ExtDateWithEvent = {
       date: date,
-      events: this.calendar[date.strftime(CALENDAR_KEY_FORMAT)]
+      events: this.calendar[date.strftime(CALENDAR_KEY_FORMAT)] || []
     };
     this.selectDate.emit(dateWithEvent);
   }
