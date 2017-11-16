@@ -53,7 +53,7 @@ Once the module is imported, you can use its components, directives and pipes in
 <h1>
   {{title}}
 </h1>
-<ng-infinite-calendar></ng-infinite-calendar>
+<infinite-calendar></infinite-calendar>
 ```
 
 ## Inputs and Outputs
