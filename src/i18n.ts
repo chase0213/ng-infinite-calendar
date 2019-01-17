@@ -42,5 +42,27 @@ export const I18n = {
         '土',
       ]
     }
+  },
+  ptBR: {
+    dayOfWeek: {
+      default: [
+        'Domingo',
+        'Segunda-Feira',
+        'Terça-Feira',
+        'Quarta-Feira',
+        'Quinta-Feira',
+        'Sexta-Feira',
+        'Sábado',
+      ],
+      short: [
+        'Dom',
+        'Seg',
+        'Ter',
+        'Qua',
+        'Qui',
+        'Sex',
+        'Sab',
+      ]
+    }
   }
 };
