@@ -5,7 +5,6 @@ var gulp = require('gulp'),
   rollup = require('gulp-rollup'),
   rename = require('gulp-rename'),
   del = require('del'),
-  runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
 
 const rootFolder = path.join(__dirname);
@@ -131,7 +130,7 @@ gulp.task('rollup:umd', function () {
       // The name to use for the module for UMD/IIFE bundles
       // (required for bundles with exports)
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
-      moduleName: 'ng-infinite-calendar',
+      name: 'ng-infinite-calendar',
 
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
       globals: {
@@ -183,41 +182,32 @@ gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
 });
 
-gulp.task('compile', function () {
-  runSequence(
-    'clean:dist',
-    'copy:source',
-    'inline-resources',
-    'ngc',
-    'rollup:fesm',
-    'rollup:umd',
-    'copy:build',
-    'copy:manifest',
-    'copy:readme',
-    'clean:build',
-    'clean:tmp',
-    function (err) {
-      if (err) {
-        console.log('ERROR:', err.message);
-        deleteFolders([distFolder, tmpFolder, buildFolder]);
-      } else {
-        console.log('Compilation finished succesfully');
-      }
-    });
-});
+gulp.task('compile', gulp.series(
+  'clean:dist',
+  'copy:source',
+  'inline-resources',
+  'ngc',
+  'rollup:fesm',
+  'rollup:umd',
+  'copy:build',
+  'copy:manifest',
+  'copy:readme',
+  'clean:build',
+  'clean:tmp'
+));
 
 /**
  * Watch for any change in the /src folder and compile files
  */
 gulp.task('watch', function () {
-  gulp.watch(`${srcFolder}/**/*`, ['compile']);
+  gulp.watch(`${srcFolder}/**/*`, gulp.series('compile'));
 });
 
-gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
+gulp.task('clean', gulp.series('clean:dist', 'clean:tmp', 'clean:build'));
 
-gulp.task('build', ['clean', 'compile']);
-gulp.task('build:watch', ['build', 'watch']);
-gulp.task('default', ['build:watch']);
+gulp.task('build', gulp.series('clean', 'compile'));
+gulp.task('build:watch', gulp.series('build', 'watch'));
+gulp.task('default', gulp.series('build:watch'));
 
 /**
  * Deletes the specified folder
