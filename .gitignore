@@ -10,6 +10,11 @@ test/*.js
 test/*.map
 test/*.d.ts
 
+# Ignore output files
+/*.d.ts
+/*.js
+/*.js.map
+
 
 # JetBrains
 .idea
