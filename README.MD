@@ -77,4 +77,4 @@ $ npm run lint
 
 ## License
 
-MIT © [Chisto Hasegawa](mailto:chase0213+dev@gmail.com)
+MIT © [Chisato Hasegawa](mailto:chase0213+dev@gmail.com)
