@@ -19,7 +19,7 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
     labelForToday: 'Today',
   },
   label: {
-    lang: 'en',
+    lang: 'enUS',
     short: true,
   }
 };

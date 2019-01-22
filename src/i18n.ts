@@ -1,5 +1,5 @@
 export const I18n = {
-  en: {
+  enUS: {
     dayOfWeek: {
       default: [
         'Sunday',
@@ -21,7 +21,7 @@ export const I18n = {
       ]
     }
   },
-  ja: {
+  jaJP: {
     dayOfWeek: {
       default: [
         '日曜日',
