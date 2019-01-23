@@ -108,16 +108,16 @@ $rows: 5;
     text-align: center;
     width: 14.2%;
 
+    // hovered day
+    &:hover {
+      background: rgba(#ffff9f, .4);
+    }
+
     // today
     &.current {
       border: 2px #faa779 solid;
       border-radius: 4px;
       box-sizing: border-box;
-    }
-
-    // hovered day
-    &.hovered {
-      background: rgba(#ffff9f, .4);
     }
 
     // selected day

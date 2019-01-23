@@ -58,7 +58,6 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
                     [ngClass]="{
                       'current': vAddr[date.x][date.y].current,
                       'holiday': vAddr[date.x][date.y].holiday,
-                      'hovered': vAddr[date.x][date.y].hovered,
                       'selected': vAddr[date.x][date.y].selected
                     }"
                     (click)="onClickDate($event, date)"
@@ -136,6 +135,9 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   @Output()
   selectDate: EventEmitter<ExtDateWithEvent> = new EventEmitter<ExtDateWithEvent>();
 
+  @Output()
+  hoverOnDate: EventEmitter<ExtDateWithEvent> = new EventEmitter<ExtDateWithEvent>();
+
   //
   // Configuration
   //
@@ -206,7 +208,6 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
           day: date.day(),
           dayOfWeekInShort: date.dayOfWeekInShort('en'),
           current: date.isSameDay(this.currentDate),
-          hovered: false,
           selected: false,
           holiday: date.dayOfWeekInShort('en') === 'Sun',
           firstDayOfMonth: date.day() === 1,
@@ -253,11 +254,12 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   onMouseoverDate(event, addr) {
-    if (this.hovering) {
-      this.vAddr[this.hovering['x']][this.hovering['y']].hovered = false;
-    }
-    this.hovering = addr;
-    this.vAddr[addr['x']][addr['y']].hovered = true;
+    let date = this.vAddr[addr['x']][addr['y']].date;
+    let dateWithEvent: ExtDateWithEvent = {
+      date: date,
+      events: this.calendar[date.strftime(CALENDAR_KEY_FORMAT)] || []
+    };
+    this.hoverOnDate.emit(dateWithEvent);
   }
 
   onScroll(event) {
@@ -361,7 +363,6 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
           day: date.day(),
           dayOfWeekInShort: date.dayOfWeekInShort('en'),
           current: date.isSameDay(this.currentDate),
-          hovered: false,
           selected: false,
           holiday: date.dayOfWeekInShort('en') === 'Sun',
           firstDayOfMonth: date.day() === 1,
@@ -389,7 +390,6 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
           day: date.day(),
           dayOfWeekInShort: date.dayOfWeekInShort('en'),
           current: date.isSameDay(this.currentDate),
-          hovered: false,
           selected: false,
           holiday: date.dayOfWeekInShort('en') === 'Sun',
           firstDayOfMonth: date.day() === 1,
