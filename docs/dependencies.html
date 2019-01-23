@@ -27,53 +27,9 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content package-dependencies">
                    <div class="content-data">
 
-<h1 id="ng-infinite-calendar">ng-infinite-calendar</h1>
-<h2 id="installation">Installation</h2>
-<p>To install this library, run:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm install extdate ng-infinite-calendar --save</code></pre></div><p>NOTE:
-<a href="https://github.com/chase0213/extdate">extdate</a> is a simple and lite extension of Date object in javascript, which ng-infinite-calendar uses internally.</p>
-<h2 id="consuming-your-library">Consuming your library</h2>
-<p>You can import your library in any Angular application by running:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm install extdate ng-infinite-calendar</code></pre></div><p>and then from your Angular <code>AppModule</code>:</p>
-<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
-import { NgModule } from &#39;&#64;angular/core&#39;;
-
-import { AppComponent } from &#39;./app.component&#39;;
-
-// Import the module
-import { InfiniteCalendarModule } from &#39;ng-infinite-calendar&#39;;
-
-&#64;NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify the module as an import
-    InfiniteCalendarModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }</code></pre></div><p>Once the module is imported, you can use its components, directives and pipes in your Angular application:</p>
-<div><pre class="line-numbers"><code class="language-xml">&lt;!-- You can now use the module component in app.component.html --&gt;
-&lt;h1&gt;
-  {{title}}
-&lt;/h1&gt;
-&lt;infinite-calendar&gt;&lt;/infinite-calendar&gt;</code></pre></div><h2 id="inputs-and-outputs">Inputs and Outputs</h2>
-<p>Several inputs and outputs are provided.
-See docs for details.</p>
-<h2 id="development">Development</h2>
-<p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre></div><p>To lint all <code>*.ts</code> files:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre></div><h2 id="publish">Publish</h2>
-<p>To publish this library, run:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm run build &amp;&amp; cd dist &amp;&amp; npm publish</code></pre></div><h2 id="license">License</h2>
-<p>MIT © <a href="mailto:chase0213+dev@gmail.com">Chisato Hasegawa</a></p>
 
 
 
@@ -87,6 +43,11 @@ See docs for details.</p>
 
 
 
+    <ol class="breadcrumb">
+        <li>Dependencies</li>
+    </ol>
+    <ul class="dependencies-list">
+    </ul>
 
 
 
@@ -108,8 +69,8 @@ See docs for details.</p>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'package-dependencies';
+            var COMPODOC_CURRENT_PAGE_URL = 'dependencies.html';
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
