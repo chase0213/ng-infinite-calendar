@@ -121,6 +121,12 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   shortLabel: boolean = DEFAULT_OPTIONS.label.short;
 
   @Input()
+  dateFormat: string;
+
+  @Input()
+  monthDateFormat: string;
+
+  @Input()
   events: InfiniteCalendarEvent[] = [];
 
   //
@@ -145,10 +151,6 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
 
   // week labels
   weekLabels: string[] = [];
-
-  // date format
-  dateFormat: string = "dd/MM/yyyy";
-  monthDateFormat: string = "MM/yyyy";
 
   // event dictionary
   calendar: any = {};
@@ -290,10 +292,10 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
     }
 
     // date format
-    if (config.dateFormat && config.dateFormat.default) {
+    if (config.dateFormat && config.dateFormat.default && !this.dateFormat) {
       this.dateFormat = config.dateFormat.default;
     }
-    if (config.dateFormat && config.dateFormat.short) {
+    if (config.dateFormat && config.dateFormat.short && !this.monthDateFormat) {
       this.monthDateFormat = config.dateFormat.short;
     }
   }
