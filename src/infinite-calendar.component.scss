@@ -131,20 +131,10 @@ $rows: 5;
     }
 
     // the first day of month
-    .month {
+    .first-day {
       color: #989898;
       font-size: .8em;
-
-      &::after {
-        content: '/';
-      }
-    }
-
-    // the first day of year
-    .year {
-      color: #989898;
-      font-size: .8em;
-      margin-right: .2em;
+      font-weight: 400;
     }
 
     // events

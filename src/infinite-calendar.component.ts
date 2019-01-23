@@ -31,7 +31,7 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
     <div class="container">
       <nav class="navigation">
         <span class="current-day-indicator">
-          {{ midDayOnCurrentWindow.strftime("%Y/%m") }}
+          {{ midDayOnCurrentWindow.date | date: monthDateFormat }}
         </span>
 
         <div class="back-to-today" *ngIf="navForToday">
@@ -63,13 +63,15 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
                     }"
                     (click)="onClickDate($event, date)"
                     (mouseover)="onMouseoverDate($event, date)">
-                <span class="year" *ngIf="vAddr[date.x][date.y].firstDayOfYear">
-                  {{vAddr[date.x][date.y].year}}
-                </span>
-                <span class="month" *ngIf="vAddr[date.x][date.y].firstDayOfMonth">
-                  {{vAddr[date.x][date.y].month}}
-                </span>
-                {{vAddr[date.x][date.y].day}}
+
+                <div class="date-container">
+                  <span class="first-day" *ngIf="vAddr[date.x][date.y].firstDayOfMonth">
+                    {{ vAddr[date.x][date.y].date.date | date: dateFormat }}
+                  </span>
+                  <span class="day" *ngIf="!vAddr[date.x][date.y].firstDayOfMonth">
+                    {{ vAddr[date.x][date.y].day }}
+                  </span>
+                </div>
 
                 <div class="event-container" *ngIf="calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')]">
                   <div class="event">
@@ -79,6 +81,7 @@ const DEFAULT_OPTIONS: InfiniteCalendarOptions = {
                     +{{calendar[vAddr[date.x][date.y].date.strftime('%Y-%m-%d')].length - 1}}
                   </div>
                 </div>
+
               </span>
             </div>
           </div>
@@ -142,6 +145,10 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
 
   // week labels
   weekLabels: string[] = [];
+
+  // date format
+  dateFormat: string = "dd/MM/yy";
+  monthDateFormat: string = "MM/yy";
 
   // event dictionary
   calendar: any = {};
@@ -208,10 +215,8 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   ngOnChanges() {
-    if (this.shortLabel) {
-      this.weekLabels = I18n[this.language]['short'];
-    } else {
-      this.weekLabels = I18n[this.language]['default'];
+    if (!!I18n[this.language]) {
+      this._i18n(I18n[this.language]);
     }
 
     if (this.events && this.events.length > 0) {
@@ -275,6 +280,22 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
 
     // calculate the first day of the current window
     this.midDayOnCurrentWindow = this._midDayFromScrollTop(this.scrollView.nativeElement.scrollTop, ROW_HEIGHT);
+  }
+
+  private _i18n(config) {
+    if (this.shortLabel) {
+      this.weekLabels = config['short'];
+    } else {
+      this.weekLabels = config['default'];
+    }
+
+    // date format
+    if (config.dateFormat && config.dateFormat.default) {
+      this.dateFormat = config.dateFormat.default;
+    }
+    if (config.dateFormat && config.dateFormat.short) {
+      this.monthDateFormat = config.dateFormat.short;
+    }
   }
 
   private _initializeEvents() {
