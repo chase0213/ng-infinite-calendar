@@ -147,8 +147,8 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
   weekLabels: string[] = [];
 
   // date format
-  dateFormat: string = "dd/MM/yy";
-  monthDateFormat: string = "MM/yy";
+  dateFormat: string = "dd/MM/yyyy";
+  monthDateFormat: string = "MM/yyyy";
 
   // event dictionary
   calendar: any = {};
