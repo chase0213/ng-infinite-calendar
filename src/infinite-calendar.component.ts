@@ -192,7 +192,7 @@ export class InfiniteCalendarComponent implements OnInit, OnChanges, AfterViewIn
     this._setWeekLabels();
 
     // calculate the mid day of the current window
-    this.midDayOnCurrentWindow = this._midDayFromScrollTop(this.scrollView.nativeElement.scrollTop, ROW_HEIGHT);
+    this.midDayOnCurrentWindow = this.currentDate;
 
     for (let w = 0; w < this.maxRowsInVirtualContainer; w++) {
       this.pAddr.push([]);
