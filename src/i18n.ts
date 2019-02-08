@@ -36,5 +36,19 @@ export const I18n = {
       default: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'],
       short: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
     }
+  },
+  deDE: {
+    dateFormat: {
+      default: "dd/MM/yyyy",
+      short: "MM/yyyy",
+    },
+    months: {
+      default: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+      short: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+    },
+    dayOfWeek: {
+      default: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+      short: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fri', 'Sam'],
+    }
   }
 };
