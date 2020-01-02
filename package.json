@@ -1,16 +1,6 @@
 {
   "name": "ng-infinite-calendar",
-  "version": "0.1.9",
-  "scripts": {
-    "build": "gulp build",
-    "build:watch": "gulp",
-    "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n ng-infinite-calendar -d docs --hideGenerator",
-    "docs:serve": "npm run docs:build -- -s",
-    "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-    "test": "tsc && karma start test/karma.conf.js"
-  },
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/chase0213/ng-infinite-calendar"
@@ -30,12 +20,12 @@
     "url": "https://github.com/chase0213/ng-infinite-calendar/issues"
   },
   "devDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/compiler": "^7.0.0",
-    "@angular/compiler-cli": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@angular/platform-browser": "^7.0.0",
-    "@angular/platform-browser-dynamic": "^7.0.0",
+    "@angular/common": "^8.0.0",
+    "@angular/compiler": "^8.0.0",
+    "@angular/compiler-cli": "^8.2.14",
+    "@angular/core": "^8.0.0",
+    "@angular/platform-browser": "^8.0.0",
+    "@angular/platform-browser-dynamic": "^8.0.0",
     "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "^2.5.54",
     "@types/node": "^6.0.118",
@@ -48,7 +38,7 @@
     "gulp-rollup": "^2.11.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
-    "karma": "^3.1.4",
+    "karma": "^4.4.1",
     "karma-browserstack-launcher": "^1.4.0",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
@@ -57,8 +47,8 @@
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-typescript": "^3.0.13",
-    "karma-typescript-angular2-transform": "^1.0.1",
+    "karma-typescript": "^4.1.1",
+    "karma-typescript-angular2-transform": "^4.1.1",
     "node-sass": "^4.11.0",
     "node-sass-tilde-importer": "^1.0.0",
     "node-watch": "^0.5.2",
@@ -76,5 +66,8 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "dependencies": {}
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  }
 }

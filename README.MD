@@ -1,88 +1,24 @@
-# ng-infinite-calendar
+# NgInfiniteCalendar
 
-## Installation
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-To install this library, run:
+## Code scaffolding
 
-```bash
-$ npm install extdate ng-infinite-calendar --save
-```
+Run `ng generate component component-name --project ng-infinite-calendar` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-infinite-calendar`.
+> Note: Don't forget to add `--project ng-infinite-calendar` or else it will be added to the default project in your `angular.json` file. 
 
-NOTE:
-[extdate](https://github.com/chase0213/extdate) is a simple and lite extension of Date object in javascript, which ng-infinite-calendar uses internally.
+## Build
 
-## Consuming your library
+Run `ng build ng-infinite-calendar` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-You can import your library in any Angular application by running:
+## Publishing
 
-```bash
-$ npm install extdate ng-infinite-calendar
-```
+After building your library with `ng build ng-infinite-calendar`, go to the dist folder `cd dist/ng-infinite-calendar` and run `npm publish`.
 
-and then from your Angular `AppModule`:
+## Running unit tests
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+Run `ng test ng-infinite-calendar` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-import { AppComponent } from './app.component';
+## Further help
 
-// Import the module
-import { InfiniteCalendarModule } from 'ng-infinite-calendar';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify the module as an import
-    InfiniteCalendarModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-Once the module is imported, you can use its components, directives and pipes in your Angular application:
-
-```xml
-<!-- You can now use the module component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<infinite-calendar></infinite-calendar>
-```
-
-## Inputs and Outputs
-
-Several inputs and outputs are provided.
-See docs for details.
-
-## Development
-
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
-
-```bash
-$ npm run build
-```
-
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
-```
-
-## Publish
-
-To publish this library, run:
-
-```bash
-$ npm run build && cd dist && npm publish
-```
-
-## License
-
-MIT © [Chisato Hasegawa](mailto:chase0213+dev@gmail.com)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
