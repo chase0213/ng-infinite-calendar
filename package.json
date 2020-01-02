@@ -1,6 +1,6 @@
 {
   "name": "ng-infinite-calendar",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -36,7 +36,7 @@
     "@angular/core": "^7.0.0",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
-    "@compodoc/compodoc": "^1.1.7",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "^2.5.54",
     "@types/node": "^6.0.118",
     "codelyzer": "~2.0.0",
